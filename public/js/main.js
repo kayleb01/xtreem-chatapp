@@ -10,7 +10,6 @@ const { username, room } = Qs.parse(location.search, {
 });
 
 const socket = io();
-
 // Join chatroom
 socket.emit('joinRoom', { username, room });
 
@@ -56,7 +55,8 @@ function outputMessage(message) {
   const p = document.createElement('p');
   p.classList.add('meta');
   p.innerText = message.username;
-  p.innerHTML += `<span>${message.time}</span>`;
+  p.innerHTML += ` 
+  &nbsp;⋅&nbsp; <small>${message.time}</small>`;
   div.appendChild(p);
   const para = document.createElement('p');
   para.classList.add('text');
